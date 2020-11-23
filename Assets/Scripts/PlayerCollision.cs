@@ -15,15 +15,15 @@ public class PlayerCollision : MonoBehaviour
     	if(collision.collider.tag == "Obstacle")
     	{   
     		// Debug.Log("We have hit " + collision.collider.name);
-			if(playerMove != null)
-			{
-				playerMove.enabled = false;
-				GameManger gameManger = FindObjectOfType<GameManager>();
-				if (gameManger != null)
-				{
-					gameManger.EndGame();
-				}
-			}
+			// if(playerMove != null)
+			// {
+			// 	playerMove.enabled = false;
+			// 	GameManger gameManger = FindObjectOfType<GameManager>();
+			// 	if (gameManger != null)
+			// 	{
+			// 		gameManger.EndGame();
+			// 	}
+			// }
     	}
     }
 }
