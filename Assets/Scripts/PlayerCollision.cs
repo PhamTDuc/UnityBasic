@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-	PlayerMove playerMove;
-
+	private PlayerMove playerMove;
+	private GameManager gameManager;
+	
 	void Start()
 	{
 		playerMove = this.GetComponent<PlayerMove>();
+		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
 	}
+
     void OnCollisionEnter(Collision collision)
     {
     	if(collision.collider.tag == "Obstacle")
     	{   
-    		// Debug.Log("We have hit " + collision.collider.name);
-			// if(playerMove != null)
-			// {
-			// 	playerMove.enabled = false;
-			// 	GameManger gameManger = FindObjectOfType<GameManager>();
-			// 	if (gameManger != null)
-			// 	{
-			// 		gameManger.EndGame();
-			// 	}
-			// }
+    		Debug.Log("We have hit " + collision.collider.name);
+			playerMove.enabled = false;
+			gameManager.EndGame();
     	}
     }
 }
