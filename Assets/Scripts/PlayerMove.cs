@@ -3,7 +3,7 @@
 public class PlayerMove : MonoBehaviour
 {
     private GameManager gameManager;
-	public Rigidbody rb;
+	private Rigidbody rb;
 	public float forward = 500f;
 	public float side = 20f;
 
@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     {
         // Debug.Log("Hello the world!!");
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
