@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TurnButton : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class TurnButton : MonoBehaviour
     private void Awake()
     {
         input_system = new InputSystem();
-        input_system.PlayerControl.Combat.performed += (ctx)=> ChangeTurn();
+        input_system.PlayerControl.Combat.performed += (ctx)=>ChangeTurn();
     }
 
     private void OnEnable() => input_system.Enable();
@@ -26,6 +26,16 @@ public class TurnButton : MonoBehaviour
          }
          
     }
+
+    private void OnMouseDown()
+    {
+        ChangeTurn();
+    }
+
+    //private void Combat(InputAction.CallbackContext ctx)
+    //{
+    //    ChangeTurn();
+    //}
 
     IEnumerator ChangeRotation()
     {

@@ -38,17 +38,6 @@ public class @InputSystem : IInputActionCollection, IDisposable
                     ""action"": ""Combat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""88b60cce-406f-4688-9f6c-eef9e467354c"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Combat"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
