@@ -6,9 +6,17 @@ public class TurnButton : MonoBehaviour
 {
     private bool is_turn = true;
     private bool is_flipping = false;
+    private InputSystem input_system;
     public float duration = 2.0f;
-    private void OnMouseDown() => ChangeTurn();
 
+    private void Awake()
+    {
+        input_system = new InputSystem();
+        input_system.PlayerControl.Combat.performed += (ctx)=> ChangeTurn();
+    }
+
+    private void OnEnable() => input_system.Enable();
+    private void OnDisable() => input_system.Disable();
 
     private void ChangeTurn()
     {
@@ -22,7 +30,6 @@ public class TurnButton : MonoBehaviour
     IEnumerator ChangeRotation()
     {
         is_flipping = true;
-        is_turn =! is_turn; 
 
         float from  = is_turn ? 0f : 180f;
         float to =  is_turn ? 180f : 0f;
@@ -41,6 +48,7 @@ public class TurnButton : MonoBehaviour
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
 
+        is_turn =! is_turn; 
         is_flipping = false;
     }
 }
