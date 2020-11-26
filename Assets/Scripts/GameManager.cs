@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	private bool is_running = true;
 	public float restartDelay = 1.0f;
     public GameObject levelCompleteUI;
 
@@ -17,14 +16,10 @@ public class GameManager : MonoBehaviour
         levelCompleteUI.SetActive(true);
 	}
 
-    public void EndGame()
-    {
-    	if(is_running)
-    	{
-    		is_running = false;
-    		Debug.Log("Game Over!!!");
-    		Invoke("Restart", restartDelay);
-    	}
+    public void RestartLevel()
+    {	
+        Debug.Log("Game Over!!!");
+    	Invoke("Restart", restartDelay);
     }
 
     private void Restart()
@@ -33,8 +28,4 @@ public class GameManager : MonoBehaviour
     	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public bool isRunning()
-    {
-    	return is_running;
-    }
 }

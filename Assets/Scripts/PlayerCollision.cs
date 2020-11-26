@@ -20,7 +20,7 @@ public class PlayerCollision : MonoBehaviour
     	{   
     		Debug.Log("We have hit " + collision.collider.name);
 			playerMove.enabled = false;
-			gameManager.EndGame();
+			gameManager.RestartLevel();
     	}
     }
 }

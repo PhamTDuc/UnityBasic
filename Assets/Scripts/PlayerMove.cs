@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
         if (rb.position.y < 0.0f)
         {
             this.enabled = false;
-            gameManager.EndGame();
+            gameManager.RestartLevel();
         }
     }
 }
